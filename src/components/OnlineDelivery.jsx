@@ -8,8 +8,7 @@ function OnlineDelivery() {
     async function fetchData() {
         let responce = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.11610&lng=79.07060&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const apidata = await responce.json();
-        console.log(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        // (data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+        // console.log(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setData(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
@@ -60,7 +59,7 @@ function OnlineDelivery() {
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-3'>
                 {data.map(({info}) => {
-                    return <Card {...info} />
+                    return <Card {...info} key={info?.id} />
                 })}
             </div>
             <hr className='my-11 border-[1px]'/>

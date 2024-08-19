@@ -10,8 +10,6 @@ function ListItem() {
         let responce = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.11610&lng=79.07060&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const data = await responce.json();
         // console.log(data);
-        console.log(data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-        console.log(data)
         setCategory(data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
         // console.log(category);
     }

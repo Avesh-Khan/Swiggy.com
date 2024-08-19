@@ -11,8 +11,7 @@ const [slide, setSlide] = useState(0);
     async function fetchData() {
         let responce = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.11610&lng=79.07060&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const apidata = await responce.json();
-        console.log(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        // (data?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+        // console.log(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setData(apidata?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
